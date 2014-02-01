@@ -1,16 +1,15 @@
 package com.page.page;
 
-import com.page.*;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,6 +17,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        // Only use this if you want it to have a daddy.
+        // In the manifest, you must edit the activity
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -34,17 +37,43 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
+/* This stuff is for a menu.  which we don't have.  Yet.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_search:
+                openSearch();
+                return true;
+            case R.id.action_settings:
+                openSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+    }
+*/
+    public void openSearch() {
+        TextView tv = (TextView) findViewById(R.id.headerText);
+        tv.setText("Search");
+    }
+
+    public void openSettings() {
+        TextView tv = (TextView) findViewById(R.id.headerText);
+        tv.setText("Settings");
+    }
+
+    public void startSearch(View view) {
+        Intent i = new Intent(this, Search.class);
+        startActivity(i);
+    }
+
+    public void startPost(View view) {
+        Intent i = new Intent(this, Post.class);
+        startActivity(i);
     }
 
     /**

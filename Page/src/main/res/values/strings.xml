@@ -4,5 +4,16 @@
     <string name="app_name">Page</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string-array name="course_subject">
+        <item>ACC</item>
+        <item>CE</item>
+        <item>CS</item>
+        <item>ZOO</item>
+    </string-array>
+    <string-array name="course_number">
+        <item>1</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
 
 </resources>

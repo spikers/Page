@@ -1,8 +1,34 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.page.page.MainActivity"
-    tools:ignore="MergeRootFrame" />
-<!-- From: file:/C:/Users/timfe_000/AndroidStudioProjects/Page/Page/src/main/res/layout/activity_main.xml -->
+    tools:context="com.example.googleproject2.MainActivity"
+    tools:ignore="MergeRootFrame">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/headerText"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/bSearch"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startSearch"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:id="@+id/bPost"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startPost"/>
+
+</LinearLayout><!-- From: file:/C:/Users/timfe_000/AndroidStudioProjects/Page/Page/src/main/res/layout/activity_main.xml -->
