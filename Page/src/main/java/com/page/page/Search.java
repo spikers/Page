@@ -30,14 +30,14 @@ public class Search extends Activity implements View.OnClickListener {
     }
 
     public void spinnerInitialize() {
-        Spinner courseSub = (Spinner) findViewById(R.id.sSubject);
-        Spinner courseNum = (Spinner) findViewById(R.id.sClassNumber);
+        Spinner sSubject = (Spinner) findViewById(R.id.sSubject);
+        Spinner sNumber = (Spinner) findViewById(R.id.sClassNumber);
 
         //I set the course subject array to the course subject spinner
         ArrayAdapter<CharSequence> subject = ArrayAdapter.createFromResource(this,
                 R.array.course_subject, android.R.layout.simple_spinner_item);
         subject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        courseSub.setAdapter(subject);
+        sSubject.setAdapter(subject);
 
         //I can probably hack this.  I can take away the course number from the course name
         //by setting up a string-array with the same name as the subject.
@@ -46,7 +46,7 @@ public class Search extends Activity implements View.OnClickListener {
         ArrayAdapter<CharSequence> number = ArrayAdapter.createFromResource(this,
                 R.array.course_number, android.R.layout.simple_spinner_item);
         subject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        courseNum.setAdapter(number);
+        sNumber.setAdapter(number);
     }
 
     @Override

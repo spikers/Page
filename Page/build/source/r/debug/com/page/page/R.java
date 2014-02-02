@@ -910,6 +910,7 @@ containing a value of this type.
         public static final int sClassNumber=0x7f08004a;
         public static final int sNumber=0x7f080041;
         public static final int sSubject=0x7f080040;
+        public static final int scrollView=0x7f08004d;
         public static final int search_badge=0x7f080032;
         public static final int search_bar=0x7f080031;
         public static final int search_button=0x7f080033;

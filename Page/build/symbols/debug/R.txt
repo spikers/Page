@@ -281,6 +281,7 @@ int id radio 0x7f08002f
 int id sClassNumber 0x7f08004a
 int id sNumber 0x7f080041
 int id sSubject 0x7f080040
+int id scrollView 0x7f08004d
 int id search_badge 0x7f080032
 int id search_bar 0x7f080031
 int id search_button 0x7f080033
