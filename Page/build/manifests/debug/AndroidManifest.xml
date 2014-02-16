@@ -16,7 +16,11 @@
 
         <activity android:label="@string/app_name" android:name="com.page.page.Post" android:parentActivityName="com.page.page.MainActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.page.page.MainActivity"/>
-            </activity>
+        </activity>
+
+        <activity android:label="@string/app_name" android:name="com.page.page.SQLView" android:parentActivityName="com.page.page.Post">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.page.page.Post"/>
+        </activity>
 
     </application>
 

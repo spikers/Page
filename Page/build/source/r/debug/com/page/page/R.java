@@ -932,6 +932,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f080020;
         public static final int tvPostPrice=0x7f080042;
         public static final int tvPostZeroZero=0x7f080044;
+        public static final int tvSQLInfo=0x7f08004e;
         public static final int tvTest=0x7f08004c;
         public static final int up=0x7f080021;
         public static final int useLogo=0x7f080003;
@@ -967,8 +968,9 @@ containing a value of this type.
         public static final int activity_main=0x7f030017;
         public static final int activity_post=0x7f030018;
         public static final int activity_search=0x7f030019;
-        public static final int fragment_main=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int activity_sqlview=0x7f03001a;
+        public static final int fragment_main=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

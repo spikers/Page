@@ -303,6 +303,7 @@ int id title 0x7f08002b
 int id top_action_bar 0x7f080020
 int id tvPostPrice 0x7f080042
 int id tvPostZeroZero 0x7f080044
+int id tvSQLInfo 0x7f08004e
 int id tvTest 0x7f08004c
 int id up 0x7f080021
 int id useLogo 0x7f080003
@@ -334,8 +335,9 @@ int layout abc_search_view 0x7f030016
 int layout activity_main 0x7f030017
 int layout activity_post 0x7f030018
 int layout activity_search 0x7f030019
-int layout fragment_main 0x7f03001a
-int layout support_simple_spinner_dropdown_item 0x7f03001b
+int layout activity_sqlview 0x7f03001a
+int layout fragment_main 0x7f03001b
+int layout support_simple_spinner_dropdown_item 0x7f03001c
 int menu main 0x7f0d0000
 int string abc_action_bar_home_description 0x7f0b0000
 int string abc_action_bar_up_description 0x7f0b0001

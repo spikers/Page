@@ -2,9 +2,11 @@ package com.page.page;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,11 +15,16 @@ import android.widget.TextView;
 /**
  * Created by timfe_000 on 1/28/14.
  */
-public class Post extends Activity {
+public class Post extends Activity implements AdapterView.OnItemSelectedListener {
 
     Spinner sSubject, sNumber;
     EditText etPrice, etPhone, etDescription;
+    String numberExtract, subjectExtract;
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +43,7 @@ public class Post extends Activity {
 
     public void spinnerInitialize() {
         sSubject = (Spinner) findViewById(R.id.sSubject);
-        sNumber = (Spinner) findViewById(R.id.sClassNumber);
+        sNumber = (Spinner) findViewById(R.id.sNumber);
 
         //I set the course subject array to the course subject spinner
         ArrayAdapter<CharSequence> subject = ArrayAdapter.createFromResource(this,
@@ -50,7 +57,7 @@ public class Post extends Activity {
         //I set the course number array to the course number spinner.
         ArrayAdapter<CharSequence> number = ArrayAdapter.createFromResource(this,
                 R.array.course_number, android.R.layout.simple_spinner_item);
-        subject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        number.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sNumber.setAdapter(number);
     }
 
@@ -60,37 +67,41 @@ public class Post extends Activity {
     }
 
     public void bookSubmit(View view) {
-        TextView tv = (TextView) findViewById(R.id.tvPostZeroZero);
-        tv.setText("bookSubmit class was called");
-
         boolean didItWork= true;
         try {
             String description = etDescription.getText().toString();
             String phone = etPhone.getText().toString();
+            String price = etPrice.getText().toString();
 
             LiteSequel entry = new LiteSequel(this);
             entry.write();
-            entry.createEntry(description, phone);
+            //whatishappening here?
+            entry.createEntry(description, phone, price);//, subjectExtract, numberExtract);
             entry.close();
-
         } catch (Exception e) {
             didItWork = false;
             Dialog d = new Dialog(this);
-            d.setTitle("Nope!");
+            d.setTitle("Error!");
             TextView tvDbChecker = new TextView(this);
-            tvDbChecker.setText("Failure");
+            tvDbChecker.setText(e.toString());
             d.setContentView(tvDbChecker);
             d.show();
         } finally {
             if (didItWork) {
-                Dialog d = new Dialog(this);
-                d.setTitle("Heck Yea!");
-                TextView tvDbChecker = new TextView(this);
-                tvDbChecker.setText("Success");
-                d.setContentView(tvDbChecker);
-                d.show();
+                Intent i = new Intent(this, SQLView.class);
+                startActivity(i);
             }
         }
 
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //There's something amiss here.  Not sure what it is.  I'm getting null/null for both
+        if (parent == sSubject) {
+            subjectExtract = parent.getItemAtPosition(position).toString();
+        } else {
+            numberExtract = parent.getItemAtPosition(position).toString();
+        }
     }
 }
